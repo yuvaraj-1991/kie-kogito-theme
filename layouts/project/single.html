@@ -1,0 +1,32 @@
+{{ define "main" }} 
+    {{ range $index, $val := $.Param "bands" }} {{ if modBool $index 2 }}
+    <pfe-band color="lightest">
+        {{ else }}
+        <pfe-band color="dark">
+            {{ end }}
+            <h2 slot="pfe-band--header">{{ $val.header }}</h2>
+            {{ $val.content }} {{ if $val.image }}
+            <img slot="pfe-band--aside" src="{{ $val.image }}" alt=""> {{ end }}
+            {{ if $val.video }}
+                <iframe src="https://www.youtube.com/embed/{{ $val.video }}"
+                    slot="pfe-band--aside"
+                    style="top: 0; left: 0; width: 445px; height: 300px;"
+                    allowfullscreen frameborder="0"
+                    title="YouTube Video">
+                </iframe>
+            {{ end }}
+        </pfe-band>
+    {{ end }} 
+    
+    <div class="pfe-l-grid pfe-m-gutters pfe-m-all-6-col pfe-m-all-4-col-on-md">
+        {{ range $index, $val := $.Param "cards" }}
+            <pfe-card color="dark">
+                <h2 slot="pfe-card--header">{{ $val.header }}</h2>
+                <div slot="pfe-card--footer">                    
+                    <img slot="pfe-card" src="{{ $val.image }}" alt="">
+                    <p>{{$val.content}}</p>
+                </div>
+            </pfe-card>        
+        {{ end }}
+    </div>
+{{ end }}

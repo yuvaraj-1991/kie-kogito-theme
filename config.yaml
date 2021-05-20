@@ -1,0 +1,7 @@
+---
+baseURL: https://kie.org/
+title: KIE Community
+MetaDataFormat: yaml
+canonifyURLs: true
+theme:
+  - kie

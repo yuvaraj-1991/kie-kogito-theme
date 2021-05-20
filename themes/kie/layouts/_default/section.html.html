@@ -1,0 +1,8 @@
+{{ define "main" }}
+<h1>Section</h1>
+{{ range .Pages }}
+<pfe-band color="lightest">
+    <h2 slot="pfe-band--header">{{ .Data.header }}</h2>
+    {{ .Content }}
+</pfe-band>
+{{ end }} {{ end }}
